@@ -12,19 +12,25 @@
     <link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet"/>
     <link href="{% static 'fonts/fontawesome5-overrides.min.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet"/>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<!--    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>-->
 
     {% block head %}
     {% endblock %}
 </head>
 <body>
 
-<div class="row mainRow">
+<div class="row mainRow" id="mainRow">
     {% block content %}
     {% endblock %}
 </div>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}">
-</script>
-<script src="{% static 'js/jquery.min.js' %}">
+
+<script type="text/babel" src="{% static 'js/base.js' %}" type="text/babel">
 </script>
 {% block javascript %}
 {% endblock %}

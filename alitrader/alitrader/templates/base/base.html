@@ -5,20 +5,47 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"/>
     <!--    <link href="static/img/flav.png" rel="icon"/>-->
+
+    
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet"/>
-    <link href="{% static 'fonts/fontawesome-all.min.css' %}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"> -->
+
+    <!-- <link href="{% static 'fonts/fontawesome-all.min.css' %}" rel="stylesheet"/>
     <link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet"/>
-    <link href="{% static 'fonts/fontawesome5-overrides.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fonts/fontawesome5-overrides.min.css' %}" rel="stylesheet"/> -->
+    <!-- <link href="{% static 'fonts/all.min.css' %}" rel="stylesheet"/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/base.css' %}" rel="stylesheet"/>
+
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js" type="text/babel" ></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" type="text/babel" ></script>
+
+    <!-- <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js" type="text/babel" ></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" type="text/babel" ></script> -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <!--    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>-->
+
+    <script crossorigin src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.6" type="text/babel"></script>
+    <script crossorigin src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.7" type="text/babel"></script>
+
+    <!-- <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js" type="text/babel"></script> -->
+    <!-- <script src="https://unpkg.com/@popperjs/core@2" type="text/babel"></script> -->
+
+    <script type="text/babel" src="{% static 'js/poppers.js' %}">
+    </script>
+    <script type="text/babel" src="{% static 'js/sidebar.js' %}">
+    </script>
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet"/>
 
     {% block head %}
     {% endblock %}
@@ -26,9 +53,11 @@
 <body>
 <div class="layout has-sidebar fixed-sidebar fixed-header">
     <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
-        <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
+        <!-- <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a> -->
+        <a id="btn-collapse" class="sidebar-collapser"><i class="fa-solid fa-angle-left"></i></a>
+
         <div class="image-wrapper">
-            <img src="assets/images/sidebar-bg.jpg" alt="sidebar background"/>
+            <img src="{% static 'img/side_background.jpg' %}" alt="sidebar background"/>
         </div>
         <div class="sidebar-layout">
             <div class="sidebar-header">
@@ -44,9 +73,9 @@
                         <li class="menu-item sub-menu">
                             <a href="#">
                     <span class="menu-icon">
-                      <i class="ri-vip-diamond-fill"></i>
+                        <i class="fa-solid fa-user"></i>
                     </span>
-                                <span class="menu-title">Components</span>
+                                <span class="menu-title">Profile</span>
                                 <span class="menu-suffix">
                       <span class="badge primary">Hot</span>
                     </span>
@@ -55,28 +84,28 @@
                                 <ul>
                                     <li class="menu-item">
                                         <a href="#">
-                                            <span class="menu-title">Grid</span>
+                                            <span class="menu-title">Profile</span>
                                         </a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="#">
-                                            <span class="menu-title">Layout</span>
+                                            <span class="menu-title">Security</span>
                                         </a>
                                     </li>
                                     <li class="menu-item sub-menu">
                                         <a href="#">
-                                            <span class="menu-title">Forms</span>
+                                            <span class="menu-title">Payments</span>
                                         </a>
                                         <div class="sub-menu-list">
                                             <ul>
                                                 <li class="menu-item">
                                                     <a href="#">
-                                                        <span class="menu-title">Input</span>
+                                                        <span class="menu-title">Crypto</span>
                                                     </a>
                                                 </li>
                                                 <li class="menu-item">
                                                     <a href="#">
-                                                        <span class="menu-title">Select</span>
+                                                        <span class="menu-title">Fiat</span>
                                                     </a>
                                                 </li>
                                                 <li class="menu-item sub-menu">
@@ -123,9 +152,9 @@
                         <li class="menu-item sub-menu">
                             <a href="#">
                     <span class="menu-icon">
-                      <i class="ri-bar-chart-2-fill"></i>
+                        <i class="fa-solid fa-chart-line"></i>
                     </span>
-                                <span class="menu-title">Charts</span>
+                                <span class="menu-title">Dashboard</span>
                             </a>
                             <div class="sub-menu-list">
                                 <ul>
@@ -150,9 +179,9 @@
                         <li class="menu-item sub-menu">
                             <a href="#">
                     <span class="menu-icon">
-                      <i class="ri-shopping-cart-fill"></i>
+                        <i class="fa-solid fa-wallet"></i>
                     </span>
-                                <span class="menu-title">E-commerce</span>
+                                <span class="menu-title">Wallets</span>
                             </a>
                             <div class="sub-menu-list">
                                 <ul>
@@ -254,6 +283,12 @@
     <div id="overlay" class="overlay"></div>
     <div class="layout">
         <main class="content">
+            <div>
+                <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
+                  <i class="ri-menu-line ri-xl"></i>
+                </a>
+            </div>
+            <p>&#9760;&#9762;</p>
         {% block content %}
         {% endblock %}
         </main>
@@ -261,8 +296,10 @@
     </div>
 </div>
 
-<script type="text/babel" src="{% static 'js/base.js' %}" type="text/babel">
+<script type="text/babel" src="{% static 'js/base.js' %}">
 </script>
+
+
 {% block javascript %}
 {% endblock %}
 </body>

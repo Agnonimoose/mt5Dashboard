@@ -1,3 +1,10 @@
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+
+// const { createPopper } = require("./poppers");
+
+
+
 const ANIMATION_DURATION = 300;
 
 const SIDEBAR_EL = document.getElementById("sidebar");
@@ -13,6 +20,46 @@ const FIRST_SUB_MENUS_BTN = document.querySelectorAll(
 const INNER_SUB_MENUS_BTN = document.querySelectorAll(
   ".menu > ul > .menu-item.sub-menu .menu-item.sub-menu > a"
 );
+
+
+class Poppers {
+  subMenuPoppers = [];
+
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    SUB_MENU_ELS.forEach((element) => {
+      this.subMenuPoppers.push(
+        new PopperObject(element, element.lastElementChild)
+      );
+      this.closePoppers();
+    });
+  }
+
+  togglePopper(target) {
+    if (window.getComputedStyle(target).visibility === "hidden")
+      target.style.visibility = "visible";
+    else target.style.visibility = "hidden";
+  }
+
+  updatePoppers() {
+    this.subMenuPoppers.forEach((element) => {
+      element.instance.state.elements.popper.style.display = "none";
+      element.instance.update();
+    });
+  }
+
+  closePoppers() {
+    // console.log("closing poppers");
+    this.subMenuPoppers.forEach((element) => {
+      // console.log("hiding ele = ");
+      // console.log(element);
+      element.hide();
+    });
+  }
+}
 
 class PopperObject {
   instance = null;
@@ -46,6 +93,7 @@ class PopperObject {
       ]
     });
 
+
     document.addEventListener(
       "click",
       (e) => this.clicker(e, this.popperTarget, this.reference),
@@ -75,41 +123,6 @@ class PopperObject {
   }
 }
 
-class Poppers {
-  subMenuPoppers = [];
-
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    SUB_MENU_ELS.forEach((element) => {
-      this.subMenuPoppers.push(
-        new PopperObject(element, element.lastElementChild)
-      );
-      this.closePoppers();
-    });
-  }
-
-  togglePopper(target) {
-    if (window.getComputedStyle(target).visibility === "hidden")
-      target.style.visibility = "visible";
-    else target.style.visibility = "hidden";
-  }
-
-  updatePoppers() {
-    this.subMenuPoppers.forEach((element) => {
-      element.instance.state.elements.popper.style.display = "none";
-      element.instance.update();
-    });
-  }
-
-  closePoppers() {
-    this.subMenuPoppers.forEach((element) => {
-      element.hide();
-    });
-  }
-}
 
 const slideUp = (target, duration = ANIMATION_DURATION) => {
   const { parentElement } = target;
@@ -137,6 +150,7 @@ const slideUp = (target, duration = ANIMATION_DURATION) => {
     target.style.removeProperty("transition-property");
   }, duration);
 };
+
 const slideDown = (target, duration = ANIMATION_DURATION) => {
   const { parentElement } = target;
   parentElement.classList.add("open");
@@ -191,11 +205,19 @@ const updatePoppersTimeout = () => {
 document.getElementById("btn-collapse").addEventListener("click", () => {
   SIDEBAR_EL.classList.toggle("collapsed");
   PoppersInstance.closePoppers();
-  if (SIDEBAR_EL.classList.contains("collapsed"))
+  if (SIDEBAR_EL.classList.contains("collapsed")){
     FIRST_SUB_MENUS_BTN.forEach((element) => {
+      console.log(element);
+      element.style.display="none";
       element.parentElement.classList.remove("open");
-    });
 
+    });
+    SIDEBAR_EL.style.width = "80px";
+  }
+  else{
+    console.log("doing the oposite");
+    SIDEBAR_EL.style.width = "280px";
+  }
   updatePoppersTimeout();
 });
 
@@ -251,3 +273,13 @@ INNER_SUB_MENUS_BTN.forEach((element) => {
     slideToggle(element.nextElementSibling);
   });
 });
+
+
+
+
+console.log("finished loading sidebar.js");
+
+
+
+
+

@@ -21,6 +21,10 @@
   color: #7d84ab;
   overflow-x: hidden !important;
   position: relative;
+
+  width: 280px;
+  height: 100vh;
+  transition: left, right, 0.3s;
 }
 .sidebar::-webkit-scrollbar-thumb {
   border-radius: 4px;
@@ -57,7 +61,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #0c1e35;
+  background-color: #0c1e35d4;
   z-index: 2;
 }
 .sidebar .sidebar-layout .sidebar-header {
@@ -363,7 +367,7 @@ a {
   -ms-flex-align: center;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  font-size: 0.8em;
   transform: translateX(50%);
   z-index: 111;
   cursor: pointer;

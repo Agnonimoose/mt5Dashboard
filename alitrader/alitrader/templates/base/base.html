@@ -1,306 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {% load static %}
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"/>
+  <head> {% load static %}
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <!--    <link href="static/img/flav.png" rel="icon"/>-->
-
-    
-    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet"/>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"> -->
-
-    <!-- <link href="{% static 'fonts/fontawesome-all.min.css' %}" rel="stylesheet"/>
-    <link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet"/>
-    <link href="{% static 'fonts/fontawesome5-overrides.min.css' %}" rel="stylesheet"/> -->
+    <!-- <link href="{% static 'fonts/fontawesome-all.min.css' %}" rel="stylesheet"/><link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet"/><link href="{% static 'fonts/fontawesome5-overrides.min.css' %}" rel="stylesheet"/> -->
     <!-- <link href="{% static 'fonts/all.min.css' %}" rel="stylesheet"/> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
-    <link href="{% static 'css/base.css' %}" rel="stylesheet"/>
-
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/jquery.min.js' %}"></script>
-
-
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js" type="text/babel" ></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" type="text/babel" ></script>
-
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js" type="text/babel"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" type="text/babel"></script>
     <!-- <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js" type="text/babel" ></script> -->
     <!-- <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" type="text/babel" ></script> -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-<!--    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>-->
-
+    <!--    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>-->
     <script crossorigin src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.6" type="text/babel"></script>
     <script crossorigin src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.7" type="text/babel"></script>
-
     <!-- <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js" type="text/babel"></script> -->
     <!-- <script src="https://unpkg.com/@popperjs/core@2" type="text/babel"></script> -->
-
-    <script type="text/babel" src="{% static 'js/poppers.js' %}">
-    </script>
-    <script type="text/babel" src="{% static 'js/sidebar.js' %}">
-    </script>
-    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet"/>
-
-    {% block head %}
-    {% endblock %}
-</head>
-<body>
-<div class="layout has-sidebar fixed-sidebar fixed-header">
-    <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
+    <script type="text/babel" src="{% static 'js/poppers.js' %}"></script>
+    <script type="text/babel" src="{% static 'js/sidebar.js' %}"></script>
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet" /> {% block head %} {% endblock %}
+  </head>
+  <body>
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+      <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
         <!-- <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a> -->
-        <a id="btn-collapse" class="sidebar-collapser"><i class="fa-solid fa-angle-left"></i></a>
-
+        <a id="btn-collapse" class="sidebar-collapser">
+          <i class="fa-solid fa-angle-left"></i>
+        </a>
         <div class="image-wrapper">
-            <img src="{% static 'img/side_background.jpg' %}" alt="sidebar background"/>
+          <img src="{% static 'img/side_background.jpg' %}" alt="sidebar background" />
         </div>
         <div class="sidebar-layout">
-            <div class="sidebar-header">
-                <div class="pro-sidebar-logo">
-                    <div>P</div>
-                    <h5>MT5 Trader</h5>
-                </div>
+          <div class="sidebar-header">
+            <div class="pro-sidebar-logo">
+              <div>P</div>
+              <h5>MT5 Trader</h5>
             </div>
-            <div class="sidebar-content">
-                <nav class="menu open-current-submenu">
-                    <ul>
-                        <li class="menu-header"><span> GENERAL </span></li>
-                        <li class="menu-item sub-menu">
-                            <a href="#">
+          </div>
+          <div class="sidebar-content">
+            <nav class="menu open-current-submenu">
+              <ul>
+                <li class="menu-header">
+                  <span> GENERAL </span>
+                </li>
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-icon">
-                        <i class="fa-solid fa-user"></i>
+                      <i class="fa-solid fa-user"></i>
                     </span>
-                                <span class="menu-title">Profile</span>
-                                <span class="menu-suffix">
+                    <span class="menu-title">Profile</span>
+                    <span class="menu-suffix">
                       <span class="badge primary">Hot</span>
                     </span>
-                            </a>
-                            <div class="sub-menu-list">
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Profile</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Security</span>
+                        </a>
+                      </li>
+                      <li class="menu-item sub-menu">
+                        <a href="#">
+                          <span class="menu-title">Payments</span>
+                        </a>
+                        <div class="sub-menu-list">
+                          <ul>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Crypto</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Fiat</span>
+                              </a>
+                            </li>
+                            <li class="menu-item sub-menu">
+                              <a href="#">
+                                <span class="menu-title">More</span>
+                              </a>
+                              <div class="sub-menu-list">
                                 <ul>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Profile</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Security</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item sub-menu">
-                                        <a href="#">
-                                            <span class="menu-title">Payments</span>
-                                        </a>
-                                        <div class="sub-menu-list">
-                                            <ul>
-                                                <li class="menu-item">
-                                                    <a href="#">
-                                                        <span class="menu-title">Crypto</span>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="#">
-                                                        <span class="menu-title">Fiat</span>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item sub-menu">
-                                                    <a href="#">
-                                                        <span class="menu-title">More</span>
-                                                    </a>
-                                                    <div class="sub-menu-list">
-                                                        <ul>
-                                                            <li class="menu-item">
-                                                                <a href="#">
-                                                                    <span class="menu-title">CheckBox</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="#">
-                                                                    <span class="menu-title">Radio</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="menu-item sub-menu">
-                                                                <a href="#">
-                                                                    <span class="menu-title">Want more ?</span>
-                                                                    <span class="menu-suffix">&#x1F914;</span>
-                                                                </a>
-                                                                <div class="sub-menu-list">
-                                                                    <ul>
-                                                                        <li class="menu-item">
-                                                                            <a href="#">
-                                                                                <span class="menu-prefix">&#127881;</span>
-                                                                                <span class="menu-title">You made it </span>
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                  <li class="menu-item">
+                                    <a href="#">
+                                      <span class="menu-title">CheckBox</span>
+                                    </a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="#">
+                                      <span class="menu-title">Radio</span>
+                                    </a>
+                                  </li>
+                                  <li class="menu-item sub-menu">
+                                    <a href="#">
+                                      <span class="menu-title">Want more ?</span>
+                                      <span class="menu-suffix">&#x1F914;</span>
+                                    </a>
+                                    <div class="sub-menu-list">
+                                      <ul>
+                                        <li class="menu-item">
+                                          <a href="#">
+                                            <span class="menu-prefix">&#127881;</span>
+                                            <span class="menu-title">You made it </span>
+                                          </a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
                                 </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item sub-menu">
-                            <a href="#">
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-icon">
-                        <i class="fa-solid fa-chart-line"></i>
+                      <i class="fa-solid fa-chart-line"></i>
                     </span>
-                                <span class="menu-title">Dashboard</span>
-                            </a>
-                            <div class="sub-menu-list">
-                                <ul>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Pie chart</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Line chart</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Bar chart</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item sub-menu">
-                            <a href="#">
+                    <span class="menu-title">Dashboard</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Pie chart</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Line chart</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Bar chart</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-icon">
-                        <i class="fa-solid fa-wallet"></i>
+                      <i class="fa-solid fa-wallet"></i>
                     </span>
-                                <span class="menu-title">Wallets</span>
-                            </a>
-                            <div class="sub-menu-list">
-                                <ul>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Products</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Orders</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">credit card</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item sub-menu">
-                            <a href="#">
+                    <span class="menu-title">Wallets</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Products</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Orders</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">credit card</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-icon">
                       <i class="ri-global-fill"></i>
                     </span>
-                                <span class="menu-title">Maps</span>
-                            </a>
-                            <div class="sub-menu-list">
-                                <ul>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Google maps</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Open street map</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item sub-menu">
-                            <a href="#">
+                    <span class="menu-title">Maps</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Google maps</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Open street map</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item sub-menu">
+                  <a href="#">
                     <span class="menu-icon">
-                     <i class="ri-paint-brush-fill"></i>
+                      <i class="ri-paint-brush-fill"></i>
                     </span>
-                                <span class="menu-title">Theme</span>
-                            </a>
-                            <div class="sub-menu-list">
-                                <ul>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Dark</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">
-                                            <span class="menu-title">Light</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-header" style="padding-top: 20px"><span> EXTRA </span></li>
-                        <li class="menu-item">
-                            <a href="#">
+                    <span class="menu-title">Theme</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Dark</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Light</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-header" style="padding-top: 20px">
+                  <span> EXTRA </span>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
                     <span class="menu-icon">
                       <i class="ri-book-2-fill"></i>
                     </span>
-                                <span class="menu-title">Documentation</span>
-                                <span class="menu-suffix">
+                    <span class="menu-title">Documentation</span>
+                    <span class="menu-suffix">
                       <span class="badge secondary">Beta</span>
                     </span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#">
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
                     <span class="menu-icon">
                       <i class="ri-calendar-fill"></i>
                     </span>
-                                <span class="menu-title">Calendar</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#">
+                    <span class="menu-title">Calendar</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">
                     <span class="menu-icon">
                       <i class="ri-service-fill"></i>
                     </span>
-                                <span class="menu-title">Examples</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                    <span class="menu-title">Examples</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-    </aside>
-    <div id="overlay" class="overlay"></div>
-    <div class="layout">
+      </aside>
+      <div id="overlay" class="overlay"></div>
+      <div class="layout">
         <main class="content">
-            <div>
-                <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
-                  <i class="ri-menu-line ri-xl"></i>
-                </a>
-            </div>
-            <p>&#9760;&#9762;</p>
-        {% block content %}
-        {% endblock %}
+          <div>
+            <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
+              <i class="ri-menu-line ri-xl"></i>
+            </a>
+          </div>
+          <p>&#9760;&#9762;</p> {% block content %} {% endblock %}
         </main>
         <div class="overlay"></div>
+      </div>
     </div>
-</div>
-
-<script type="text/babel" src="{% static 'js/base.js' %}">
-</script>
-
-
-{% block javascript %}
-{% endblock %}
-</body>
+    <script type="text/babel" src="{% static 'js/base.js' %}"></script> {% block javascript %} {% endblock %}
+  </body>
 </html>

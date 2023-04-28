@@ -17,6 +17,14 @@ const FIRST_SUB_MENUS_BTN = document.querySelectorAll(
   ".menu > ul > .menu-item.sub-menu > a"
 );
 
+const FIRST_SUB_MENUS_TITLES = document.querySelectorAll(
+  ".menu > ul > .menu-item.sub-menu > a > .menu-title"
+);
+
+const FIRST_SUB_MENUS_SUFFIX = document.querySelectorAll(
+  ".menu > ul > .menu-item.sub-menu > a > .menu-suffix"
+);
+
 const INNER_SUB_MENUS_BTN = document.querySelectorAll(
   ".menu > ul > .menu-item.sub-menu .menu-item.sub-menu > a"
 );
@@ -207,15 +215,26 @@ document.getElementById("btn-collapse").addEventListener("click", () => {
   PoppersInstance.closePoppers();
   if (SIDEBAR_EL.classList.contains("collapsed")){
     FIRST_SUB_MENUS_BTN.forEach((element) => {
+      // console.log(element);
+      // element.style.display="none";
+      element.parentElement.classList.remove("open");
+    });
+    FIRST_SUB_MENUS_TITLES.forEach((element) => {
       console.log(element);
       element.style.display="none";
-      element.parentElement.classList.remove("open");
+      // element.parentElement.classList.remove("open");
 
     });
     SIDEBAR_EL.style.width = "80px";
   }
   else{
     console.log("doing the oposite");
+    FIRST_SUB_MENUS_TITLES.forEach((element) => {
+      console.log(element);
+      element.style.display="block";
+      element.parentElement.classList.add("open");
+
+    });
     SIDEBAR_EL.style.width = "280px";
   }
   updatePoppersTimeout();

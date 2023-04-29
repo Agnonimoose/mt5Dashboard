@@ -11,6 +11,40 @@
     color: white;
 }
 
+#walletTable_length {
+    margin-bottom: 10px;
+
+}
+
+#walletTable_length > label > select {
+    margin-left: 8px;
+    margin-right: 8px;
+    height: 38px;
+    width: 75px;
+}
+
+
+#walletTable_filter {
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+#walletTable_filter > label > input {
+    border-radius: 5px;
+    border: 1px solid rgb(206, 212, 218);
+    margin-left: 10px;
+    height: 38px;
+    padding: 6px;
+}
+
+#walletTable_filter > label > input:focus{
+    color: #212529;
+    background-color: #fff;
+    border-color: #969fa8;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(44,62,80,.25)
+}
+
 .paginate_button {
     margin-right: 3px;
 }
@@ -35,10 +69,10 @@
     font-style: italic;
 }
 
-.thead-dark {
+/* .thead-dark {
     background-color: #212529;
     color: white;
-}
+} */
 
 .ticker_t_logo {
     height: 25px;

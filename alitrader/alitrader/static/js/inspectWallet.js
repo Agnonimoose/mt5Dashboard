@@ -25,6 +25,7 @@ var overviewChart = new Chart(ctx, {
     }
     });
 
+
 function updateOverview(){
     overviewChart.destroy();
     // const labels = Utils.months({count: 7});
@@ -47,7 +48,7 @@ function updateOverview(){
 }
 
 
-const swapsCanvas = document.getElementById('swapsPie');
+const swapsCanvas = document.getElementById('swapsPieCard');
 var swapsChart = new Chart(swapsCanvas, {
     type: 'doughnut',
     data: {
@@ -73,4 +74,36 @@ var swapsChart = new Chart(swapsCanvas, {
         fill: true,
     }
     });
+
+
+const drawdownCardCanvas = document.getElementById('drawdownCard');
+const drawLabels = ['start','end'];
+const drawData = {
+        labels: drawLabels,
+        datasets: [{
+          label: 'My First Dataset',
+            data: [0, 8],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+          }],
+          hoverOffset: 4,
+      };   
+var drawdownChart = new Chart(drawdownCardCanvas, {
+  type: 'line',
+  data: drawData});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

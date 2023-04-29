@@ -22,7 +22,8 @@
   overflow-x: hidden !important;
   position: relative;
 
-  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
   height: 100vh;
   transition: left, right, 0.3s;
 }
@@ -404,6 +405,9 @@ a {
 }
 .badge.secondary {
   background-color: #079b0b;
+}
+.badge.pro {
+  background-color: #dc0505;
 }
 .sidebar-toggler {
   position: fixed;

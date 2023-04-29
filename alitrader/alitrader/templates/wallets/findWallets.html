@@ -1,0 +1,141 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block head %}
+<link href="{% static 'css/findWallet.css' %}" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="col-10">
+    {% csrf_token %}
+    <div class="input-group">
+        <input placeholder="Filter Wallet Addresses ...." type="search" id="filterWallets" class="form-control"  style="max-width: 350px;"/>
+        <button class="btn btn-primary walletSearch" type="button" onclick="findWallet();">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <form id="filterForm">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="mb-3" style="margin-top:20px;">
+                    <label for="fromBlock" class="form-label">From Block</label>
+                    <input type="number" class="form-control filterInput" id="fromBlock" placeholder={{min}} value={{min}} style="max-width: 150px;">
+                    <div id="fromBlockHelp" class="form-text">Oldest Available Block : {{min}}</div>
+                </div>
+                <div class="mb-3">
+                    <label for="toBlock" class="form-label">To Block</label>
+                    <input type="number" class="form-control filterInput" id="toBlock" placeholder={{max}} value={{max}} style="max-width: 150px;">
+                    <div id="toBlockHelp" class="form-text">Newest Available Block : {{max}}</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="mb-3" style="margin-top:20px;">
+                    <label for="minTrades" class="form-label">Min Trades</label>
+                    <input type="number" class="form-control filterInput" id="minTrades" placeholder=0 value=0 style="max-width: 150px;">
+                    <div id="minTradesHelp" class="form-text">Min Trades Available : 0</div>
+                </div>
+                <div class="mb-3">
+                    <label for="maxTrades" class="form-label">Max Trades</label>
+                    <input type="number" class="form-control filterInput" id="maxTrades" placeholder=100000 value=100000 style="max-width: 150px;">
+                    <div id="maxTradesHelp" class="form-text">Max Trades Available  : 100000</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="mb-3" style="margin-top:20px;">
+                    <label for="minTradeVal" class="form-label">Min Trade Val</label>
+                    <input type="number" class="form-control filterInput" id="minTradeVal" placeholder=0 value=0 style="max-width: 150px;">
+                    <div id="minTradeValHelp" class="form-text">Min Trade Value : 0</div>
+                </div>
+                <div class="mb-3">
+                    <label for="maxTradeVal" class="form-label">Max Trade Val</label>
+                    <input type="number" class="form-control filterInput" id="maxTradeVal" placeholder=100000 value=100000 style="max-width: 150px;">
+                    <div id="maxTradeValHelp" class="form-text">Max Trade Value  : 100000000</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="mb-3" style="margin-top:20px;">
+                    <label for="minAvProfit" class="form-label">Min Mean Profit</label>
+                    <input type="number" class="form-control filterInput" id="minAvProfit" placeholder=0 value=0 style="max-width: 150px;">
+                    <div id="minAvProfitHelp" class="form-text">Min Mean Profit : 0</div>
+                </div>
+                <div class="mb-3">
+                    <label for="minTotalProfit" class="form-label">Min Total Profit</label>
+                    <input type="number" class="form-control filterInput" id="minTotalProfit" placeholder=100000 value=100000 style="max-width: 150px;">
+                    <div id="minTotalProfitHelp" class="form-text">Min Total Profit  : 100000000</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="mb-3" style="margin-top:20px;">
+                    <label for="minAvRoi" class="form-label">Min Mean ROI</label>
+                    <input type="number" class="form-control filterInput" id="minAvRoi" placeholder=0 value=0 style="max-width: 150px;">
+                    <div id="minAvRoiHelp" class="form-text">Min Mean ROI : 0</div>
+                </div>
+                <div class="mb-3">
+                    <label for="minTotalRoi" class="form-label">Min Total ROI</label>
+                    <input type="number" class="form-control filterInput" id="minTotalRoi" placeholder=100000 value=100000 style="max-width: 150px;">
+                    <div id="minTotalRoiHelp" class="form-text">Min Total ROI  : 100000000</div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <div class="row align-items-center" style="height: 50px; margin-top:20px; margin-bottom:20px;">
+        <div class="col-9 lastCol">
+            <span class="spanOuter">Wallets: </span>
+        </div>
+        <div class="col-3 rightCol justify-content-end">
+            <div class="input-group justify-content-end">
+                <button type="button" class="btn btn-success" onclick="getData();">
+                    Update
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped overflow-scroll" id="walletTable">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="width: 30%;">Address</th>
+                    <th scope="col" style="width: 16%;">P&L Total</th>
+                    <th scope="col" style="width: 16%;">ROI Total</th>
+                    <th scope="col" style="width: 8%;">Strike Rate</th>
+                    <th scope="col" style="width: 20%;">Draw Down Max</th>
+                    <th scope="col" style="width: 20%;">Draw Down Min</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody">
+                {% for wallet in walletData %}
+                    <tr class="dataRow">
+                        <td scope="col" >{{wallet.Address}}</td>
+                        <td scope="col" >{{wallet.profitLossTotal}}</td>
+                        <td scope="col" >{{wallet.ROITotal}}</td>
+                        <td scope="col" >{{wallet.strikeRate}}</td>
+                        <td scope="col" >{{wallet.drawDownMax}}</td>
+                        <td scope="col" >{{wallet.drawDownMin}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+{% block javascript %}
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="{% static 'js/walletData.js' %}"></script>
+
+{% endblock %}

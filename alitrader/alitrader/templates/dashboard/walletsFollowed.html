@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block head %}
+<link href="{% static 'css/walletsFollowed.css' %}" rel="stylesheet" /> 
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class="main-body">
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/dashboard/">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Wallets Followed</li>
+        </ol>
+    </nav>
+
+
+
+    
+
+</div>
+
+
+{% endblock %}
+{% block javascript %}
+{% endblock %}

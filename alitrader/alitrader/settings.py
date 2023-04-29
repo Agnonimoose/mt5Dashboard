@@ -42,7 +42,9 @@ INSTALLED_APPS = [
 
 
     'basePages.apps.BasepagesConfig',
-    'dashboard.apps.DashboardConfig'
+    'dashboard.apps.DashboardConfig',
+    'userProfile.apps.UserprofileConfig',
+    'wallets.apps.WalletsConfig'
 
 ]
 

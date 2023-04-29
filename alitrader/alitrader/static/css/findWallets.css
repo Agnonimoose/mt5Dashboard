@@ -1,0 +1,68 @@
+
+
+.walletSearch {
+    min-width:42px;
+    width: 100px;
+}
+
+#walletTable{
+    background: linear-gradient(-68deg,#4132e4,#130538);
+    border-radius: 5px;
+    color: white;
+}
+
+.paginate_button {
+    margin-right: 3px;
+}
+
+.rightCol {
+    text-align: end;
+
+}
+
+.leftCol {
+    text-align: start;
+
+}
+
+.spanOuter {
+    font-weight: bold;
+}
+
+.spanInner {
+    margin-left: 10px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.thead-dark {
+    background-color: #212529;
+    color: white;
+}
+
+.ticker_t_logo {
+    height: 25px;
+    width: 25px;
+}
+
+.table {
+    table-layout: fixed;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+
+td {
+  white-space: normal !important;
+  word-wrap: break-word;
+}

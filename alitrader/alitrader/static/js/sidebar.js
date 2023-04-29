@@ -225,7 +225,9 @@ document.getElementById("btn-collapse").addEventListener("click", () => {
       // element.parentElement.classList.remove("open");
 
     });
-    SIDEBAR_EL.style.width = "80px";
+    SIDEBAR_EL.style.minWidth = "80px";
+    SIDEBAR_EL.style.maxWidth = "80px";
+
   }
   else{
     console.log("doing the oposite");
@@ -235,7 +237,8 @@ document.getElementById("btn-collapse").addEventListener("click", () => {
       element.parentElement.classList.add("open");
 
     });
-    SIDEBAR_EL.style.width = "280px";
+    SIDEBAR_EL.style.minWidth = "280px";
+    SIDEBAR_EL.style.maxWidth = "280px";
   }
   updatePoppersTimeout();
 });

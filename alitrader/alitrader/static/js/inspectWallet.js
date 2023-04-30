@@ -73,13 +73,13 @@ var swapsChart = new Chart(swapsCanvas, {
 
 
 const drawdownCardCanvas = document.getElementById('drawdownCard');
-const drawLabels = ['start','end'];
 const drawData = {
-        labels: drawLabels,
+        labels: weeklyLabels,
         datasets: [{
-            data: [0, 8],
-            fill: false,
+            data: [0, 8, 6, -2],
+            fill: true,
             borderColor: PuBu4.slice(-1),
+            backgroundColor: PuBu4.slice(-2),
             tension: 0.1
           }],
           hoverOffset: 4,
@@ -105,13 +105,6 @@ const weeklyTradeVolsData = {
 const weeklyTradeVolsChart = new Chart(weeklyTradeVolsCardCanvas, {
   type: 'bar', 
   data:weeklyTradeVolsData,
-  // options: {
-  //   plugins: {
-  //     colorschemes: {
-  //       scheme: 'tableau.ClassicBlue7'
-  //     }
-  //   }
-  // }
 });
 
 
@@ -120,20 +113,20 @@ const weeklyTradeVolsChart = new Chart(weeklyTradeVolsCardCanvas, {
 
 
 
-  // const drawdownCardCanvas = document.getElementById('weeklyTradeVolsCard');
-  // const drawLabels = ['start','end'];
-  // const drawData = {
-  //         labels: drawLabels,
-  //         datasets: [{
-  //           label: 'My First Dataset',
-  //             data: [0, 8],
-  //             fill: false,
-  //             borderColor: 'rgb(75, 192, 192)',
-  //             tension: 0.1
-  //           }],
-  //           hoverOffset: 4,
-  //       };   
-  // var drawdownChart = new Chart(drawdownCardCanvas, {
-  //   type: 'line',
-  //   data: drawData});
+const weeklyROIPLCardCanvas = document.getElementById('weeklyROI&PLCard');
+const drawLabels = ['start','end'];
+const ROIPLData = {
+        labels: drawLabels,
+        datasets: [{
+          label: 'My First Dataset',
+            data: [0, 8],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+          }],
+          hoverOffset: 4,
+      };   
+var drawdownChart = new Chart(drawdownCardCanvas, {
+  type: 'line',
+  data: drawData});
 

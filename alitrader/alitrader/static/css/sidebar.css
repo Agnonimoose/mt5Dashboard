@@ -24,7 +24,7 @@
 
   min-width: 280px;
   max-width: 280px;
-  /* height: 100vh; */
+  min-height: 100vh;
   transition: left, right, 0.3s;
 }
 .sidebar::-webkit-scrollbar-thumb {

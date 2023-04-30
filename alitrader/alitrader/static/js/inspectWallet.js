@@ -1,7 +1,10 @@
 function updateFollow(){
-    console.log("hello changing the bits");
+    console.log("");
 }
 
+const weeklyLabels = ['week 1','week 2', 'week 3', 'week 4'];
+const PuBu9 = ["#fff7fb","#ece7f2","#d0d1e6","#a6bddb","#74a9cf","#3690c0","#0570b0","#045a8d","#023858"];
+const PuBu4 = ["#d0d1e6","#74a9cf","#0570b0","#023858"];
 
 
 const ctx = document.getElementById('overview');
@@ -12,7 +15,8 @@ var overviewChart = new Chart(ctx, {
         datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: PuBu9,
         }]
     },
     options: {
@@ -50,21 +54,13 @@ function updateOverview(){
 
 const swapsCanvas = document.getElementById('swapsPieCard');
 var swapsChart = new Chart(swapsCanvas, {
-    type: 'doughnut',
+    type: 'polarArea',
     data: {
-        labels: [
-          'Red',
-          'Blue',
-          'Yellow'
-        ],
+        labels: weeklyLabels,
         datasets: [{
           label: 'My First Dataset',
-          data: [300, 50, 100],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
+          data: [300, 50, 100, 33],
+          backgroundColor: PuBu4,
           hoverOffset: 4,
           
         }]
@@ -81,10 +77,9 @@ const drawLabels = ['start','end'];
 const drawData = {
         labels: drawLabels,
         datasets: [{
-          label: 'My First Dataset',
             data: [0, 8],
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: PuBu4.slice(-1),
             tension: 0.1
           }],
           hoverOffset: 4,
@@ -94,6 +89,30 @@ var drawdownChart = new Chart(drawdownCardCanvas, {
   data: drawData});
 
 
+const weeklyTradeVolsCardCanvas = document.getElementById('weeklyTradeVolsCard');
+const weeklyTradeVolsData = {
+  labels: weeklyLabels,
+  datasets: [{
+    data: [65, 59, 80, 81],
+    backgroundColor: PuBu4,
+    borderColor: PuBu4,
+    borderWidth: 1
+  }]
+};
+
+
+
+const weeklyTradeVolsChart = new Chart(weeklyTradeVolsCardCanvas, {
+  type: 'bar', 
+  data:weeklyTradeVolsData,
+  // options: {
+  //   plugins: {
+  //     colorschemes: {
+  //       scheme: 'tableau.ClassicBlue7'
+  //     }
+  //   }
+  // }
+});
 
 
 
@@ -101,9 +120,20 @@ var drawdownChart = new Chart(drawdownCardCanvas, {
 
 
 
-
-
-
-
-
+  // const drawdownCardCanvas = document.getElementById('weeklyTradeVolsCard');
+  // const drawLabels = ['start','end'];
+  // const drawData = {
+  //         labels: drawLabels,
+  //         datasets: [{
+  //           label: 'My First Dataset',
+  //             data: [0, 8],
+  //             fill: false,
+  //             borderColor: 'rgb(75, 192, 192)',
+  //             tension: 0.1
+  //           }],
+  //           hoverOffset: 4,
+  //       };   
+  // var drawdownChart = new Chart(drawdownCardCanvas, {
+  //   type: 'line',
+  //   data: drawData});
 

@@ -104,8 +104,8 @@
                   </div>
                   <h4>16,247</h4>
                 </div>
-                <div class="d-flex justify-content-center px-4 py-6">
-                    <canvas id="swapsPieCard"></canvas>
+                <div class="row d-flex justify-content-center px-4 py-6">
+                    <canvas id="swapsPieCard" class="tileGraphs"></canvas>
                 </div>
                 <div class="mt-2">
                   <div class="d-flex align-items-center mb-2">
@@ -135,8 +135,15 @@
                   </div>
                   <h4>356</h4>
                 </div>
-                <div class="pb-0 pt-4">
-                  <canvas id="drawdownCard"></canvas>          
+                <div class="row pb-0 pt-4 justify-content-center">
+                  <canvas id="drawdownCard" class="tileGraphs"></canvas>          
+                </div>
+                <div class="row align-self-end">
+                  <div class="d-flex align-items-center">
+                    <div class="bullet-item bg-primary-100 me-2"></div>
+                    <h6 class="text-900 fw-semi-bold flex-1 mb-0">Pending payment</h6>
+                    <h6 class="text-900 fw-semi-bold mb-0">48%</h6>
+                  </div>
                 </div>
               </div>
             </div>
@@ -146,17 +153,14 @@
               <div class="card-body">
                 <div class="d-flex justify-content-between">
                   <div>
-                    <h5 class="mb-2">Trade Volumes</h5>
+                    <h5 class="mb-2">Trade Volumes<span class="badge badge-phoenix badge-phoenix-warning rounded-pill fs--1 ms-2 positive">
+                      <span class="badge-label">+26.5%</span>
+                    </span></h5>
                     <h6 class="text-700">Last 28 days</h6>
                   </div>
                 </div>
-                <div class="pb-4 pt-3">
-                  <div style="position: relative; width: 444px; height: 115px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
-                    <canvas id="weeklyTradeVolsCard"></canvas>
-                  </div>
-                  <div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; background-color: rgb(239, 242, 246); border-width: 1px; border-radius: 4px; color: rgb(20, 24, 36); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 7px 10px; top: 0px; left: 0px; transform: translate3d(42px, 38px, 0px); border-color: rgb(203, 208, 221); pointer-events: none; visibility: hidden; opacity: 0;">
-                    <strong>Percentage discount:</strong> 72%
-                  </div>
+                <div class="row justify-content-center pb-4 pt-3">
+                  <canvas id="weeklyTradeVolsCard" class="tileGraphs"></canvas>
                 </div>
                 <div>
                   <div class="d-flex align-items-center mb-2">
@@ -183,17 +187,14 @@
               <div class="card-body d-flex flex-column">
                 <div class="d-flex justify-content-between">
                   <div>
-                    <h5 class="mb-2">ROI & PL</h5>
+                    <h5 class="mb-2">ROI & PL<span class="badge badge-phoenix badge-phoenix-warning rounded-pill fs--1 ms-2 positive">
+                      <span class="badge-label">+26.5%</span>
+                    </span></h5>
                     <h6 class="text-700">Last 28 days</h6>
                   </div>
                 </div>
-                <div class="d-flex justify-content-center pt-3 flex-1">
-                  <div style="position: relative; width: 444px; height: 144px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
-                    <canvas id="weeklyROI&PLCard"></canvas>
-                  </div>
-                  <div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; background-color: rgb(239, 242, 246); border-width: 1px; border-radius: 4px; color: rgb(20, 24, 36); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 7px 10px; top: 0px; left: 0px; transform: translate3d(195px, 35px, 0px); border-color: rgb(203, 208, 221); pointer-events: none; visibility: hidden; opacity: 0;">
-                    <strong>Paying customer:</strong> 30%
-                  </div>
+                <div class="row justify-content-center pt-3 flex-1">
+                  <canvas id="weeklyROI&PLCard" class="tileGraphs"></canvas>
                 </div>
                 <div class="mt-3">
                   <div class="d-flex align-items-center mb-2">
@@ -222,11 +223,7 @@
             <h3>Projection vs actual</h3>
             <p class="mb-1 text-700">Actual earnings vs projected earnings</p>
           </div>
-          <div class="echart-projection-actual" style="height: 300px; width: 100%; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-echart-responsive="data-echart-responsive" _echarts_instance_="ec_1682724320805">
-            <div style="position: relative; width: 458px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;">
-              <canvas data-zr-dom-id="zr_0" width="458" height="300" style="position: absolute; left: 0px; top: 0px; width: 458px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
-            </div>
-            <div class=""></div>
+            <canvas data-zr-dom-id="zr_0" width="458" height="300" style="position: absolute; left: 0px; top: 0px; width: 458px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
           </div>
         </div>
       </div>
@@ -250,7 +247,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- <script type="text/javascript" src="{% static 'js/chartjs-plugin-colorschemes.min.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script> -->
-<script src="https://unpkg.com/chartjs-plugin-colorschemes"></script>
+<!-- <script src="https://unpkg.com/chartjs-plugin-colorschemes"></script> -->
 
 <script type="text/babel" src="{% static 'js/inspectWallet.js' %}"></script>
 {% endblock %}

@@ -2,10 +2,19 @@ function updateFollow(){
     console.log("");
 }
 
-const weeklyLabels = ['week 1','week 2', 'week 3', 'week 4'];
+const weeklyLabels = ['Week 1','Week 2', 'Week 3', 'Week 4'];
 const PuBu9 = ["#fff7fb","#ece7f2","#d0d1e6","#a6bddb","#74a9cf","#3690c0","#0570b0","#045a8d","#023858"];
 const PuBu4 = ["#d0d1e6","#74a9cf","#0570b0","#023858"];
 
+
+
+function randoArray(n){
+	var tmp = [];
+  for (let i=0; i<n; i++){
+  tmp.push(Math.floor(Math.random() * 10));
+  }
+  return tmp;
+}
 
 const ctx = document.getElementById('overview');
 var overviewChart = new Chart(ctx, {
@@ -68,6 +77,11 @@ var swapsChart = new Chart(swapsCanvas, {
     options: {
         responsive: true,
         fill: true,
+        plugins: {
+          legend: {
+            display: false,
+          },
+        }
     }
     });
 
@@ -86,7 +100,19 @@ const drawData = {
       };   
 var drawdownChart = new Chart(drawdownCardCanvas, {
   type: 'line',
-  data: drawData});
+  data: drawData,
+  options: {
+    scales: {
+      y: { display: false },
+      x: {display: false}
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    }
+  }
+});
 
 
 const weeklyTradeVolsCardCanvas = document.getElementById('weeklyTradeVolsCard');
@@ -99,34 +125,64 @@ const weeklyTradeVolsData = {
     borderWidth: 1
   }]
 };
-
-
-
 const weeklyTradeVolsChart = new Chart(weeklyTradeVolsCardCanvas, {
   type: 'bar', 
   data:weeklyTradeVolsData,
+  options: {
+    scales: {
+      y: { display: false },
+      x: {display: false}
+
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    }
+  }
 });
 
 
 
 
 
-
-
 const weeklyROIPLCardCanvas = document.getElementById('weeklyROI&PLCard');
-const drawLabels = ['start','end'];
 const ROIPLData = {
-        labels: drawLabels,
+        labels: weeklyLabels,
         datasets: [{
-          label: 'My First Dataset',
-            data: [0, 8],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+          label: 'PL',
+            data: randoArray(4),
+            // fill: true,
+            borderColor: PuBu4.slice(-1),
+            backgroundColor: PuBu4.slice(-3),
             tension: 0.1
-          }],
+          },
+          {
+            label: 'ROI',
+              data: randoArray(4),
+              fill: false,
+              borderColor: PuBu4.slice(-4),
+              backgroundColor: PuBu4.slice(-4),
+              tension: 0.1
+            },
+        ],
           hoverOffset: 4,
       };   
-var drawdownChart = new Chart(drawdownCardCanvas, {
+var ROIPLChart = new Chart(weeklyROIPLCardCanvas, {
   type: 'line',
-  data: drawData});
+  data: ROIPLData,
+  options: {
+    scales: {
+      y: { display: false },
+      x: {display: false}
+
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    }
+  }
+  
+  });
 

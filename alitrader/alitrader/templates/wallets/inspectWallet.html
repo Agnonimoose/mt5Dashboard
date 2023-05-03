@@ -85,7 +85,7 @@
             </select>
           </div>
         </div>
-        <div class="row">
+        <div class="row" style="position: relative;">
             <canvas id="overview"></canvas>
         </div>
       </div>
@@ -236,7 +236,8 @@
           <div style="position: relative; width: 482px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;">
             <canvas data-zr-dom-id="zr_0" width="482" height="300" style="position: absolute; left: 0px; top: 0px; width: 482px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
           </div>
-          <div class=""></div>
+          <div><button class="btn-primary">hello</button></div>
+          <div id="try"></div>
         </div>
       </div>
     </div>
@@ -245,9 +246,7 @@
 {% endblock %}
 {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- <script type="text/javascript" src="{% static 'js/chartjs-plugin-colorschemes.min.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script> -->
-<!-- <script src="https://unpkg.com/chartjs-plugin-colorschemes"></script> -->
-
 <script type="text/babel" src="{% static 'js/inspectWallet.js' %}"></script>
+
+
 {% endblock %}

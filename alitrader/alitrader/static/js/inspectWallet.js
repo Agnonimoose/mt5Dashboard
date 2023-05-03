@@ -86,6 +86,24 @@ function makeSwaps(data){
     data = randoArray(4);
   }
 
+  var start = data.slice(0,1);
+  var end = data.slice(3,4)
+
+  if (start > end){
+    var percent = (start / end * 100).toFixed(2);
+    $("#totalSwapSpan").removeClass('postive');
+    $("#totalSwapSpan").addClass('negative');
+    $("#totalSwapSpan").children()[0].innerHTML = '- ' + percent + ' %';
+  }
+  else {
+    var percent = (end / start * 100).toFixed(2);
+    $("#totalSwapSpan").removeClass('postive');
+    $("#totalSwapSpan").addClass('negative');
+    $("#totalSwapSpan").children()[0].innerHTML = '- ' + percent + ' %';
+  }
+
+  // id="totalSwapSpan" 
+
   var swapsChart = new Chart(swapsCanvas, {
       type: 'polarArea',
       data: {
@@ -114,6 +132,8 @@ function makeDraws(data){
   if (data === false){
     data = randoArray(4);
   }
+
+  id="drawDownSpan" 
 
   var drawdownChart = new Chart(drawdownCardCanvas, {
     type: 'line',
@@ -148,6 +168,8 @@ function makeTradeVols(data){
     data = randoArray(4);
   }
 
+  id="tradeVolSpan"
+
   var weeklyTradeVolsChart = new Chart(weeklyTradeVolsCardCanvas, {
     type: 'bar', 
     data:{
@@ -179,6 +201,9 @@ function makeROIPL(data){
     var data1 = randoArray(4);
     var data2 =  randoArray(4);
   }
+
+  id="ROIPLSpan"
+
   var ROIPLChart = new Chart(weeklyROIPLCardCanvas, {
     type: 'line',
     data: {

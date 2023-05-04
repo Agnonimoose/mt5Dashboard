@@ -9,6 +9,7 @@
     background: linear-gradient(-68deg,#4132e4,#130538);
     border-radius: 5px;
     color: white;
+    width: 800px;
 }
 
 #walletTable_length {
@@ -99,4 +100,11 @@ table.dataTable thead .sorting_desc_disabled:before {
 td {
   white-space: normal !important;
   word-wrap: break-word;
+}
+
+option{
+}
+
+option:disabled{
+    background-color: rgb(243, 224, 105);
 }

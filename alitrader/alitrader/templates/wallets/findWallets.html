@@ -27,7 +27,7 @@
     </div>
     <form id="filterForm">
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-auto">
                 <div class="mb-3" style="margin-top:20px;">
                     <label for="fromBlock" class="form-label">From Block</label>
                     <input type="number" class="form-control filterInput" id="fromBlock" placeholder={{min}} value={{min}} style="max-width: 150px;">
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-auto">
                 <div class="mb-3" style="margin-top:20px;">
                     <label for="minTrades" class="form-label">Min Trades</label>
                     <input type="number" class="form-control filterInput" id="minTrades" placeholder=0 value=0 style="max-width: 150px;">
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-auto">
                 <div class="mb-3" style="margin-top:20px;">
                     <label for="minTradeVal" class="form-label">Min Trade Val</label>
                     <input type="number" class="form-control filterInput" id="minTradeVal" placeholder=0 value=0 style="max-width: 150px;">
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-auto">
                 <div class="mb-3" style="margin-top:20px;">
                     <label for="minAvProfit" class="form-label">Min Mean Profit</label>
                     <input type="number" class="form-control filterInput" id="minAvProfit" placeholder=0 value=0 style="max-width: 150px;">
@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-auto">
                 <div class="mb-3" style="margin-top:20px;">
                     <label for="minAvRoi" class="form-label">Min Mean ROI</label>
                     <input type="number" class="form-control filterInput" id="minAvRoi" placeholder=0 value=0 style="max-width: 150px;">
@@ -107,17 +107,65 @@
         </div>
     </div>
 
+    <hr class="bg-200 mb-6 mt-4">
+
+    <div class="row">
+        <div class="row flex-between-center mb-4 g-3">
+          <div class="col-auto" style="margin-right: 20px;">
+            <h3>Wallet Overview</h3>
+            <p class="text-700 lh-sm mb-0">Select at least 1 dimension to compare</p>
+          </div>
+          <div class="col-8 col-sm-4">
+            {% for i in '012'|make_list %}
+                <div class="row">
+                        
+                    <div class="col">
+                        <div class="mb-3">
+                            <select id={{i}} class="form-select form-select-sm mt-2 dim-select" id="select-gross-revenue-month" onchange="updateOverview(this);" data-value="-">
+                                <option value="-">Select Dimension ... </option>
+                                <option value=0>Profit Losses</option>
+                                <option value=1>ROI</option>
+                                <option value=2>Strike Rates</option>
+                                <option value=3>Mean Weekly Trades</option>
+                                <option value=4>Mean Monthly Trades</option>
+                                <option value=5>Mean Value In</option>
+                                <option value=6>Mean Value Out</option>
+                                <option value=7>Draw Down Max</option>
+                                <option value=8>Draw Down Min</option>
+                            </select>
+                            <div id="minTradesHelp" class="form-text">axis = {{i}}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="row" style="position: relative;">
+            <canvas id="overview"></canvas>
+        </div>
+
+    </div>
+    <hr class="bg-200 mb-6 mt-4">
+
+
     <div class="row">
         <div class="col">
-            <table class="table table-striped overflow-scroll" id="walletTable">
+            <table class="table table-striped overflow-scroll"  style="width:100%" id="walletTable">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col" style="width: 30%;">Address</th>
+                    <!-- <th scope="col" style="width: 30%;">Address</th>
                     <th scope="col" style="width: 16%;">P&L Total</th>
                     <th scope="col" style="width: 16%;">ROI Total</th>
                     <th scope="col" style="width: 8%;">Strike Rate</th>
                     <th scope="col" style="width: 20%;">Draw Down Max</th>
-                    <th scope="col" style="width: 20%;">Draw Down Min</th>
+                    <th scope="col" style="width: 20%;">Draw Down Min</th> -->
+
+                    <th scope="col" style="width: 250px;">Address</th>
+                    <th scope="col" style="width: 250px;">P&L Total</th>
+                    <th scope="col" style="width: 250px;">ROI Total</th>
+                    <th scope="col" style="width: 250px;">Strike Rate</th>
+                    <th scope="col" style="width: 250px;">Draw Down Max</th>
+                    <th scope="col" style="width: 250px;">Draw Down Min</th>
                 </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -143,6 +191,7 @@
 
 {% endblock %}
 {% block javascript %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="{% static 'js/walletData.js' %}"></script>
 

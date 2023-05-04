@@ -21,6 +21,35 @@ function randoArray(n){
   return tmp;
 }
 
+function updateFollow(){
+  console.log("updateFollow")
+}
+
+function updateTag(data, tag){
+  var start = data.slice(0,1);
+  var end = data.slice(3,4)
+  console.log(data);
+  if (start > end){
+    if (end == 0){
+      end = 1;
+    }
+    var percent = (start / end * 100).toFixed(2);
+    $(tag).removeClass('positive');
+    $(tag).addClass('negative');
+    $(tag).children()[0].innerHTML = '- ' + percent + ' %';
+  }
+  else {
+    if (start == 0){
+      start = 1;
+    }
+    var percent = (end / start * 100).toFixed(2);
+    $(tag).removeClass('negative');
+    $(tag).addClass('positive');
+    $(tag).children()[0].innerHTML = '+ ' + percent + ' %';
+  }
+
+}
+
 function findWallet(){
   console.log("findWallet");
   for (let id in Chart.instances) {
@@ -86,23 +115,7 @@ function makeSwaps(data){
     data = randoArray(4);
   }
 
-  var start = data.slice(0,1);
-  var end = data.slice(3,4)
-
-  if (start > end){
-    var percent = (start / end * 100).toFixed(2);
-    $("#totalSwapSpan").removeClass('postive');
-    $("#totalSwapSpan").addClass('negative');
-    $("#totalSwapSpan").children()[0].innerHTML = '- ' + percent + ' %';
-  }
-  else {
-    var percent = (end / start * 100).toFixed(2);
-    $("#totalSwapSpan").removeClass('postive');
-    $("#totalSwapSpan").addClass('negative');
-    $("#totalSwapSpan").children()[0].innerHTML = '- ' + percent + ' %';
-  }
-
-  // id="totalSwapSpan" 
+  updateTag(data,"#totalSwapSpan");
 
   var swapsChart = new Chart(swapsCanvas, {
       type: 'polarArea',
@@ -133,7 +146,7 @@ function makeDraws(data){
     data = randoArray(4);
   }
 
-  id="drawDownSpan" 
+  updateTag(data,"#drawDownSpan");
 
   var drawdownChart = new Chart(drawdownCardCanvas, {
     type: 'line',
@@ -168,7 +181,7 @@ function makeTradeVols(data){
     data = randoArray(4);
   }
 
-  id="tradeVolSpan"
+  updateTag(data,"#tradeVolSpan");
 
   var weeklyTradeVolsChart = new Chart(weeklyTradeVolsCardCanvas, {
     type: 'bar', 
@@ -202,7 +215,8 @@ function makeROIPL(data){
     var data2 =  randoArray(4);
   }
 
-  id="ROIPLSpan"
+  updateTag(data1,"#ROISpan");
+  updateTag(data2,"#PLSpan");
 
   var ROIPLChart = new Chart(weeklyROIPLCardCanvas, {
     type: 'line',
